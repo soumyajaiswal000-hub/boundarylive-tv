@@ -2,7 +2,7 @@ package com.boundarylive.tv;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.GradientDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.KeyEvent;
