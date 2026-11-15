@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.application'
+}
+
+def cricketApiKey = providers.gradleProperty("CRICKETDATA_API_KEY")
+        .orElse(providers.environmentVariable("CRICKETDATA_API_KEY"))
+        .orElse("")
+
+android {
+    namespace 'com.boundarylive.tv'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.boundarylive.tv'
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+        buildConfigField 'String', 'CRICKETDATA_API_KEY', "\\\"${cricketApiKey.get()}\\\""
+    }
+}
