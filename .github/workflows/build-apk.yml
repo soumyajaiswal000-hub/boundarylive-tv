@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: Build Android TV APK
     runs-on: ubuntu-24.04
 
     permissions:
@@ -31,12 +32,12 @@ jobs:
             "build-tools;35.0.0" \
             "platform-tools"
 
-      - name: Install Gradle
+      - name: Install Gradle 8.9
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.7'
+          gradle-version: '8.9'
 
-      - name: Build Debug APK
+      - name: Build BoundaryLive Debug APK
         run: gradle --no-daemon assembleDebug
 
       - name: Upload APK
@@ -45,3 +46,4 @@ jobs:
           name: BoundaryLive-TV-APK
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+          retention-days: 30
