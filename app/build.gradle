@@ -1,3 +1,4 @@
+
 plugins {
     id 'com.android.application'
 }
@@ -10,12 +11,18 @@ android {
     namespace 'com.boundarylive.tv'
     compileSdk 35
 
+    buildFeatures {
+        buildConfig true
+    }
+
     defaultConfig {
         applicationId 'com.boundarylive.tv'
         minSdk 23
         targetSdk 35
         versionCode 1
         versionName '1.0.0'
-        buildConfigField 'String', 'CRICKETDATA_API_KEY', "\\\"${cricketApiKey.get()}\\\""
+
+        buildConfigField 'String', 'CRICKETDATA_API_KEY',
+                "\"${cricketApiKey.get()}\""
     }
 }
